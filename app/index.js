@@ -54,7 +54,7 @@ module.exports = class extends Generator {
 			baseDir: sDir,
 			srcCodeDir: `src/${sDir}`,
 			libraryNameOnly: sLibNameOnly,
-			gitRepository: '',
+			gitRepository: '',	// TODO: Obtain from user
 		};
 
 		this.log('\n\n Buzzing the engines');
@@ -64,10 +64,7 @@ module.exports = class extends Generator {
 
 		// create development setup
 		this._createDevelopmentSetup(oProps);
-
-		// install required npm packages
-		// TODO
-
+		
 		// copy sandbox html
 		this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath(`test/demo.html`), oProps);
 	}
@@ -160,7 +157,4 @@ module.exports = class extends Generator {
 	    });
   	}
 
-	addDocumentation() {
-		// this.log('Coming soon: Documentation for next steps & contribution to UI5Lab');
-	}
 };
