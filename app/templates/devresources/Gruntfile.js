@@ -108,7 +108,7 @@ module.exports = function(grunt) {
 
         open: {
             root: {
-                path: "http://localhost:8080/resources/demo.html"
+                path: 'http://localhost:8080/resources/demo.html',
                 options: {
                     delay: 500
                 }
@@ -167,5 +167,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', ['openui5_theme', 'openui5_preload', 'copy']);
 
 	// Default task
-	grunt.registerTask('default', ['lint', 'clean', 'build', 'serve:dist', "open"]);
+	grunt.registerTask('default', ['lint', 'clean', 'build', 'open', 'serve:dist']);
 };
