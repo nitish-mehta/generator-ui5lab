@@ -10,7 +10,7 @@ sap.ui.define(['jquery.sap.global', 'sap/ui/core/library'], function(jQuery, lib
 
     /**
      * @namespace
-     * @name ui5lab.wordcloud
+     * @name <%= libraryName %>
      * @public
      */
 

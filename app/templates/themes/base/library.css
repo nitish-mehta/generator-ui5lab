@@ -1,0 +1,22 @@
+.<%= libraryNameOnly %>-<%= controlName %>  {
+    font-family: Helvetica;
+    color: red;
+    text-shadow: 1px 1px 1px #3399ff;
+    font-size: 40px;
+    animation: shrink 3s infinite;
+    transform-origin: top left;
+}
+
+@keyframes shrink{
+	0%{
+		transform: scale(0.5);
+	}
+
+	50% {
+		transform: scale(1);
+	}
+
+	100%{
+		transform: scale(0.5);
+	}
+}

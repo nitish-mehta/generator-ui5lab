@@ -24,7 +24,7 @@ sap.ui.define([],
             oRm.writeControlData(oControl);
 
             // Generic library+control class
-            oRm.addClass("<%= libraryName %>-<%= controlName %>");
+            oRm.addClass("<%= libraryNameOnly %>-<%= controlName %>");
 
             oRm.writeClasses();
             // oRm.addStyle("width", oControl.getWidth());

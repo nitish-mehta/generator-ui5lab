@@ -33,12 +33,14 @@ module.exports = class extends Generator {
 
 	writing() {
 		const sLibName = this.answers.libraryName;
+		const sLibNameOnly = sLibName.split(".")[sLibName.split(".").length - 1];
 		const sControlName = this.answers.controlName;
 		const sDir = sLibName.split('.').join('/');
 		const oProps = {
 			libraryName: sLibName,
 			controlName: sControlName,
 			dir: sDir,
+			libraryNameOnly: sLibNameOnly
 		};
 
 		this.log('\n\n Buzzing the engines');
@@ -71,6 +73,12 @@ module.exports = class extends Generator {
 		this.fs.copyTpl(
 			this.templatePath('.library'),
 			this.destinationPath(`${sDir}/.library`),
+			oProps
+		);
+
+		this.fs.copyTpl(
+			this.templatePath('themes/**'),
+			this.destinationPath(`${sDir}/themes`),
 			oProps
 		);
 
