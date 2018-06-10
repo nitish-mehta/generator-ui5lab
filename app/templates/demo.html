@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Testpage - <%= libraryName %>.<%= controlName %></title>
+
+	<script id="sap-ui-bootstrap"
+		src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+		data-sap-ui-libs="<%= libraryName %>"
+		data-sap-ui-theme="sap_belize"
+		data-sap-ui-resourceroots='{"<%= libraryName %>": "./<%= libraryName %>"}'>
+	</script>
+
+
+	<script>
+		sap.ui.getCore().attachInit(function () {
+			
+			// create control
+			var o<%= controlName %> = new <%= libraryName %>.<%= controlName %>({
+				text: "Hello, UI5Lab from Demo!"
+			});
+			o<%= controlName %>.placeAt("content");
+		});
+	</script>
+</head>
+<body id="content" class="sapUiBody" style="height:100vh; width:100vw;">
+</body>
+</html>
