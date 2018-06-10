@@ -1,7 +1,7 @@
 {
   "name": "generator-ui5lab",
-  "version": "0.1.0",
-  "description": "Yeoman Generator for creating re-usable OpenUI5 custom controls | www.ui5lab.io",
+  "version": "0.1.2",
+  "description": "Yeoman Generator for creating openUI5 libraries | www.ui5lab.io",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
