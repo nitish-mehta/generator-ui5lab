@@ -1,4 +1,5 @@
 var Generator = require('yeoman-generator');
+var yosay = require('yosay');
 
 module.exports = class extends Generator {
 	constructor(args, opts) {
@@ -9,7 +10,7 @@ module.exports = class extends Generator {
 		this.answers = {};
 
 		// work half done
-		this.log('Allo! \n\n "Well begun is half done"- Aristotle \n');
+		this.log(yosay('Allo! \n\n "Well begun is half done"- Aristotle \n'));
 	}
 
 	/**
@@ -23,7 +24,7 @@ module.exports = class extends Generator {
 				type: 'input',
 				name: 'libraryName',
 				message: 'Your library name',
-				default: 'ui5lab',
+				default: 'ui5lab.mylibrary',
 			},
 			{
 				type: 'input',
