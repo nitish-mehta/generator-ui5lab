@@ -3,7 +3,7 @@
  */
 
 /**
- * Initialization Code and shared classes of library ui5lab.wordcloud.
+ * Initialization Code and shared classes of library <%= libraryName %>
  */
 sap.ui.define(['jquery.sap.global', 'sap/ui/core/library'], function(jQuery, library1) {
     'use strict';

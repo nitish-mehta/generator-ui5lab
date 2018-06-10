@@ -5,12 +5,18 @@ module.exports = class extends Generator {
 		// Calling the super constructor
 		super(args, opts);
 
+		// saves user inputs
 		this.answers = {};
 
 		// work half done
 		this.log('Yo UI5Lab! \n\n "Well begun is half done"- Aristotle \n');
 	}
 
+	/**
+	 * 'prompting' priority in the run loop of yeoman generator
+	 * Used for taking user inputs for the library being generated.
+	 * @return {Promise} promise object created by yeoman during console input.
+	 */
 	prompting() {
 		return this.prompt([
 			{
@@ -31,16 +37,20 @@ module.exports = class extends Generator {
 		);
 	}
 
+	/**
+	 * 'writing' priority in the run loop of yeoman generator
+	 * Used for writing generator specific files ( controllers, etc.)
+	 */
 	writing() {
 		const sLibName = this.answers.libraryName;
-		const sLibNameOnly = sLibName.split(".")[sLibName.split(".").length - 1];
+		const sLibNameOnly = sLibName.split('.')[sLibName.split('.').length - 1];
 		const sControlName = this.answers.controlName;
 		const sDir = sLibName.split('.').join('/');
 		const oProps = {
 			libraryName: sLibName,
 			controlName: sControlName,
 			dir: sDir,
-			libraryNameOnly: sLibNameOnly
+			libraryNameOnly: sLibNameOnly,
 		};
 
 		this.log('\n\n Buzzing the engines');

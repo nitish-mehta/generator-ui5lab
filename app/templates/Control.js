@@ -2,7 +2,7 @@
  * ${copyright}
  */
 
-// Provides control ui5lab.wordcloud.WordCloud.
+// Provides control <%= libraryName %>.<%= controlName %>
 sap.ui.define(['jquery.sap.global', './library', 'sap/ui/core/Control'], function(
     jQuery,
     library,
