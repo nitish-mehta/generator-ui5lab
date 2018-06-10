@@ -13,11 +13,8 @@ coverage
 #linters
 .jscsrc
 .jshintrc
-#.eslintrc*
+.eslintrc*
 
 #editor settings
 .idea
-#.editorconfig
-
-#additional resources
-bower_components
+.editorconfig
