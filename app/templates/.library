@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <library xmlns="http://www.sap.com/sap.ui.library.xsd">
 
-	<name>ui5lab.wordcloud</name>
+	<name><%= libraryName %></name>
 	<version>${version}</version>
 
-	<documentation>UI5 library: ui5lab.wordcloud</documentation>
+	<documentation>UI5 library: <%= libraryName %></documentation>
 
 	<dependencies>
 		<dependency>
@@ -15,11 +15,11 @@
 	<appData>
 		<!-- excludes for the JSDoc -->
 		<jsdoc xmlns="http://www.sap.com/ui5/buildext/jsdoc">
-			<exclude name="ui5lab.wordcloud.js."/>
+			<exclude name="<%= libraryName %>.js."/>
 		</jsdoc>
 		<!-- excludes for the JSCoverage -->
 		<jscoverage xmlns="http://www.sap.com/ui5/buildext/jscoverage">
-			<exclude name="ui5lab.wordcloud.js."/>
+			<exclude name="<%= libraryName %>.js."/>
 		</jscoverage>
 	</appData>
 

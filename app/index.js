@@ -36,50 +36,46 @@ module.exports = class extends Generator {
 		const sLibName = this.answers.libraryName;
 		const sControlName = this.answers.controlName;
 		const sDir = sLibName.split('.').join('/');
+		const oProps = {
+			libraryName: sLibName,
+			controlName: sControlName,
+			dir: sDir,
+		};
 
 		this.log('\n\n Buzzing the engines');
 		// Copy library file
 		this.fs.copyTpl(
 			this.templatePath('library.js'),
 			this.destinationPath(`${sDir}/library.js`),
-			{
-				libraryName: sLibName,
-				controlName: sControlName,
-			}
+			oProps
 		);
 
 		// Copy Control file
 		this.fs.copyTpl(
 			this.templatePath('Control.js'),
 			this.destinationPath(`${sDir}/${sControlName}.js`),
-			{
-				libraryName: sLibName,
-				controlName: sControlName,
-			}
+			oProps
 		);
 
 		this.fs.copyTpl(
 			this.templatePath('ControlRenderer.js'),
 			this.destinationPath(`${sDir}/${sControlName}Renderer.js`),
-			{
-				libraryName: sLibName,
-				controlName: sControlName,
-			}
+			oProps
 		);
 
 		this.fs.copyTpl(
 			this.templatePath('Control.js'),
 			this.destinationPath(`${sDir}/${sControlName}.js`),
-			{
-				libraryName: sLibName,
-				controlName: sControlName,
-			}
+			oProps
 		);
 
-		this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath(`demo.html`), {
-			libraryName: sLibName,
-			controlName: sControlName,
-		});
+		this.fs.copyTpl(
+			this.templatePath('.library'),
+			this.destinationPath(`${sDir}/.library`),
+			oProps
+		);
+
+		this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath(`demo.html`), oProps);
 	}
 
 	createComponent() {
