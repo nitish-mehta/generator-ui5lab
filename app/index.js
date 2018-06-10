@@ -9,7 +9,7 @@ module.exports = class extends Generator {
 		this.answers = {};
 
 		// work half done
-		this.log('Yo UI5Lab! \n\n "Well begun is half done"- Aristotle \n');
+		this.log('Allo! \n\n "Well begun is half done"- Aristotle \n');
 	}
 
 	/**
@@ -29,7 +29,9 @@ module.exports = class extends Generator {
 				type: 'input',
 				name: 'controlName',
 				message: 'Your control name',
+				default: 'FancyText',
 			},
+			// TODO: Add confirmation step before creation with provided namespace
 		]).then(
 			function(answers) {
 				this.answers = answers;
@@ -49,51 +51,114 @@ module.exports = class extends Generator {
 		const oProps = {
 			libraryName: sLibName,
 			controlName: sControlName,
-			dir: sDir,
+			baseDir: sDir,
+			srcCodeDir: `src/${sDir}`,
 			libraryNameOnly: sLibNameOnly,
+			gitRepository: '',
 		};
 
 		this.log('\n\n Buzzing the engines');
+
+		// create library
+		this._createTemplateLibrary(oProps);
+
+		// create development setup
+		this._createDevelopmentSetup(oProps);
+
+		// install required npm packages
+		// TODO
+
+		// copy sandbox html
+		this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath(`test/demo.html`), oProps);
+	}
+
+	/**
+	 * Copies relevant artifacts for library
+	 * @param  {Object} oProps properties used in template
+	 */
+	_createTemplateLibrary(oProps) {
 		// Copy library file
 		this.fs.copyTpl(
 			this.templatePath('library.js'),
-			this.destinationPath(`${sDir}/library.js`),
+			this.destinationPath(`${oProps.srcCodeDir}/library.js`),
 			oProps
 		);
 
 		// Copy Control file
 		this.fs.copyTpl(
 			this.templatePath('Control.js'),
-			this.destinationPath(`${sDir}/${sControlName}.js`),
+			this.destinationPath(`${oProps.srcCodeDir}/${oProps.controlName}.js`),
 			oProps
 		);
 
 		this.fs.copyTpl(
 			this.templatePath('ControlRenderer.js'),
-			this.destinationPath(`${sDir}/${sControlName}Renderer.js`),
+			this.destinationPath(`${oProps.srcCodeDir}/${oProps.controlName}Renderer.js`),
 			oProps
 		);
 
 		this.fs.copyTpl(
 			this.templatePath('Control.js'),
-			this.destinationPath(`${sDir}/${sControlName}.js`),
+			this.destinationPath(`${oProps.srcCodeDir}/${oProps.controlName}.js`),
 			oProps
 		);
 
 		this.fs.copyTpl(
 			this.templatePath('.library'),
-			this.destinationPath(`${sDir}/.library`),
+			this.destinationPath(`${oProps.srcCodeDir}/.library`),
 			oProps
 		);
 
 		this.fs.copyTpl(
 			this.templatePath('themes/**'),
-			this.destinationPath(`${sDir}/themes`),
+			this.destinationPath(`${oProps.srcCodeDir}/themes`),
 			oProps
 		);
-
-		this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath(`demo.html`), oProps);
 	}
+
+	/**
+	 * Copies all required development artifacts
+	 * @param  {Object} oProps properties used in template
+	 */
+	_createDevelopmentSetup(oProps) {
+		this.fs.copyTpl(
+			[
+				this.templatePath('devresources/**'),
+				`!${this.templatePath('devresources/Gruntfile.js')}`,
+			],
+			this.destinationPath(``),
+			oProps,
+			{
+				globOptions: {
+					dot: true,
+				},
+			}
+		);
+
+		// copy dot files
+		this.fs.copy(this.templatePath('devresources/.*'), this.destinationPath(``), oProps, {
+			globOptions: {
+				dot: true,
+			},
+		});
+
+		this.fs.copyTpl(
+			this.templatePath('devresources/Gruntfile.js'),
+			this.destinationPath(`Gruntfile.js`),
+			oProps,
+			{
+				interpolate: /<#=([\s\S]+?)#>/g,
+			}
+		);
+	}
+
+	install(){
+	    this.installDependencies({
+	      npm: false,
+	      bower: true,
+	      yarn: true
+	    });
+  	}
 
 	addDocumentation() {
 		// this.log('Coming soon: Documentation for next steps & contribution to UI5Lab');
