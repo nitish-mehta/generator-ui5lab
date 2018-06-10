@@ -27,7 +27,6 @@ module.exports = class extends Generator {
 		]).then(
 			function(answers) {
 				this.answers = answers;
-				this.log(answers);
 			}.bind(this)
 		);
 	}
@@ -76,10 +75,6 @@ module.exports = class extends Generator {
 		);
 
 		this.fs.copyTpl(this.templatePath('demo.html'), this.destinationPath(`demo.html`), oProps);
-	}
-
-	createComponent() {
-		this.log('Coming soon: Code to generate custom UI5 control');
 	}
 
 	addDocumentation() {
