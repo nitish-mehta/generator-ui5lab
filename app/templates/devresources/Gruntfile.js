@@ -9,7 +9,6 @@ module.exports = function(grunt) {
 			test: 'test',
 			dist: 'dist',
 			bower_components: 'bower_components',
-			ui5lab_browser: 'node_modules/ui5lab-browser/dist',
 		},
 
 		connect: {
@@ -40,7 +39,6 @@ module.exports = function(grunt) {
 						'<%%= dir.bower_components %%>/openui5-sap.ui.layout/test-resources',
 						'<%%= dir.bower_components %%>/openui5-themelib_sap_belize/test-resources',
 						'<%%= dir.test %%>',
-						'<%%= dir.ui5lab_browser %%>/test-resources',
 					],
 				},
 			},
@@ -61,7 +59,6 @@ module.exports = function(grunt) {
 						'<%%= dir.bower_components %%>/openui5-sap.ui.layout/test-resources',
 						'<%%= dir.bower_components %%>/openui5-themelib_sap_belize/test-resources',
 						'<%%= dir.dist %%>/test-resources',
-						'<%%= dir.ui5lab_browser %%>/test-resources',
 					],
 				},
 			},
