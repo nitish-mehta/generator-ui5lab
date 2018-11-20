@@ -1,6 +1,6 @@
 {
   "name": "generator-ui5lab",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Yeoman Generator for creating openUI5 libraries | www.ui5lab.io",
   "main": "index.js",
   "scripts": {
