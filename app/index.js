@@ -119,6 +119,7 @@ module.exports = class extends Generator {
       oProps
     );
 
+
     this.fs.copyTpl(
       this.templatePath("devresources/package.json"),
       this.destinationPath(`package.json`),
