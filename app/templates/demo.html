@@ -1,33 +1,36 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>Testpage - <%= libraryName %>.<%= controlName %></title>
+    <title>Testpage - <%= libraryName %>.<%= controlName %></title>
+    <base href="../../../../" />
 
-	<script id="sap-ui-bootstrap"
-		src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
-		data-sap-ui-libs="<%= libraryName %>"
-		data-sap-ui-theme="sap_belize"
-		data-sap-ui-resourceroots='{"<%= libraryName %>": "./<%= baseDir %>"}'>
-	</script>
+    <script
+      id="sap-ui-bootstrap"
+      src="../../../../resources/sap-ui-core.js"
+      data-sap-ui-libs="<%= libraryName %>"
+      data-sap-ui-theme="sap_belize"
+    ></script>
 
+    <script>
+      sap.ui.getCore().attachInit(function () {
 
-	<script>
-		sap.ui.getCore().attachInit(function () {
-			
-			// create instance of <%= controlName %>
-			var o<%= controlName %> = new <%= libraryName %>.<%= controlName %>({
-				text: "Hello, UI5Lab from Demo!"
-			});
-			
-			// Place in the HTML
-			o<%= controlName %>.placeAt("content");
-		});
-	</script>
-</head>
-<body id="content" class="sapUiBody" style="height:100vh; width:100vw;">
-</body>
+      	// create instance of <%= controlName %>
+      	var o<%= controlName %> = new <%= libraryName %>.<%= controlName %>({
+      		text: "Hello, UI5Lab from Demo!"
+      	});
+
+      	// Place in the HTML
+      	o<%= controlName %>.placeAt("content");
+      });
+    </script>
+  </head>
+  <body
+    id="content"
+    class="sapUiBody"
+    style="height:100vh; width:100vw;"
+  ></body>
 </html>
