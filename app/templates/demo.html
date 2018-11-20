@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Testpage - <%= libraryName %>.<%= controlName %></title>
-    <base href="../../../../" />
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <script
-      id="sap-ui-bootstrap"
-      src="../../../../resources/sap-ui-core.js"
-      data-sap-ui-libs="<%= libraryName %>"
-      data-sap-ui-theme="sap_belize"
-    ></script>
+  <title>Testpage -
+    <%= libraryName %>.
+    <%= controlName %>
+  </title>
+  <base href="../../../../" />
 
-    <script>
-      sap.ui.getCore().attachInit(function () {
+  <script id="sap-ui-bootstrap" src="../../../../resources/sap-ui-core.js" data-sap-ui-libs="<%= libraryName %>,sap.m"
+    data-sap-ui-theme="sap_belize"></script>
 
-      	// create instance of <%= controlName %>
-      	var o<%= controlName %> = new <%= libraryName %>.<%= controlName %>({
-      		text: "Hello, UI5Lab from Demo!"
-      	});
+  <script>
+    sap.ui.getCore().attachInit(function () {
 
-      	// Place in the HTML
-      	o<%= controlName %>.placeAt("content");
+      // create instance of <%= controlName %>
+      var o<%= controlName %> = new <%= libraryName %>.<%= controlName %> ({
+        text: "Hello from the other side!"
       });
-    </script>
-  </head>
-  <body
-    id="content"
-    class="sapUiBody"
-    style="height:100vh; width:100vw;"
-  ></body>
+
+      // Page elements for demo
+      var oIconTabBar = new sap.m.IconTabBar({
+        items: [
+          new sap.m.IconTabFilter({ text: "Demo", icon: "sap-icon://lightbulb", content: [o<%= controlName %>] }),
+          new sap.m.IconTabFilter({ text: "Next Steps",icon: "sap-icon://lab", content: [new sap.ui.core.HTML({content: getNextStepsHtml()})] })
+        ]
+      });
+
+      var oPage = new sap.m.Page({
+        title: "<%= controlName %> Demo | Powered by UI5Lab Yeoman Generator",
+        content: [oIconTabBar]
+      })
+
+      // Place in the HTML
+      oPage.placeAt("content");
+    });
+
+    function getNextStepsHtml(){
+        return "<h3>Publish your library at UI5Lab.io</h3>\
+            <p>  \
+             Run the build on your library to create a library preload and minified files in the \"dist\" folder</p>\
+             <div style=\"background: #efefef; border: 1px solid black; padding: 5px 20px;\"><pre>ui5 build</pre></div>\
+             <p>Publish your migrated library to npm</p>\
+             <div style=\"background: #efefef; border: 1px solid black; padding: 5px 20px;\"><pre>npm publish</pre></div>\
+             <h3>Update the library dependency in UI5Lab-central</h3>\
+             <p>If you publish to npm, you need to edit the package.json in \
+             the project UI5Lab-central and update your library to your new version. \
+             If you publish to GitHub, just let us know or wait until the next build runs.</p>\
+             <h5>package.json </h5>\
+             <div style=\"background: #efefef; border: 1px solid black; padding: 5px 20px;\"><pre>\
+              \"dependencies\": {\
+              ...\
+                \"<%= libraryName %>.<%= controlName %>\": \"^1.0.0\"\
+              },\
+              </pre></div>\
+              <p>For more information, check out <a href=\"https://ui5lab.io\" target=\"_blank\">UI5Lab.io</a> | Join <b>#ui5lab</b> on <a href=\"https://slackui5invite.herokuapp.com/\" target=\"_blank\">OpenUI5 Slack Channel</a> </p> \
+        "
+      }
+  </script>
+</head>
+
+<body id="content" class="sapUiBody" style="height:100vh; width:100vw;"></body>
+
 </html>

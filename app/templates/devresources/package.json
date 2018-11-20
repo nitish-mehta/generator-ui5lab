@@ -1,6 +1,6 @@
 {
   "name": "<%= libraryName %>",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Implementation for library: <%= libraryName %> ",
   "repository": {
     "type": "git",
