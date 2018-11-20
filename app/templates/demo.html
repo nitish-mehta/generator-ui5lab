@@ -26,8 +26,8 @@
       // Page elements for demo
       var oIconTabBar = new sap.m.IconTabBar({
         items: [
-          new sap.m.IconTabFilter({ text: "Demo", content: [o<%= controlName %>] }),
-          new sap.m.IconTabFilter({ text: "Next Steps", content: [new sap.ui.core.HTML({content: getNextStepsHtml()})] })
+          new sap.m.IconTabFilter({ text: "Demo", icon: "sap-icon://lightbulb", content: [o<%= controlName %>] }),
+          new sap.m.IconTabFilter({ text: "Next Steps",icon: "sap-icon://lab", content: [new sap.ui.core.HTML({content: getNextStepsHtml()})] })
         ]
       });
 
@@ -42,9 +42,8 @@
 
     function getNextStepsHtml(){
         return "<h3>Publish your library at UI5Lab.io</h3>\
-            <p> Increase version in the package.json \
-            (1.0.x to signalize that you switched to the new tooling and conventions)\
-             and run the build on your library to create a library preload and minified files in the \"dist\" folder</p>\
+            <p>  \
+             Run the build on your library to create a library preload and minified files in the \"dist\" folder</p>\
              <div style=\"background: #efefef; border: 1px solid black; padding: 5px 20px;\"><pre>ui5 build</pre></div>\
              <p>Publish your migrated library to npm</p>\
              <div style=\"background: #efefef; border: 1px solid black; padding: 5px 20px;\"><pre>npm publish</pre></div>\
@@ -59,6 +58,7 @@
                 \"<%= libraryName %>.<%= controlName %>\": \"^1.0.0\"\
               },\
               </pre></div>\
+              <p>For more information, check out <a href=\"https://ui5lab.io\" target=\"_blank\">UI5Lab.io</a> | Join <b>#ui5lab</b> on <a href=\"https://slackui5invite.herokuapp.com/\" target=\"_blank\">OpenUI5 Slack Channel</a> </p> \
         "
       }
   </script>
