@@ -25,13 +25,14 @@ Generates an openUI5 library with following features:
 - Create a new directory for your library and run `yo ui5lab`
 
 # See your library in action
-Run the following command once the installation is done to see your library in action:
-`npm start`
+Run `npm start` once the installation is done to see your library in action.
 
 **Demo Page**
+
 ![image](https://user-images.githubusercontent.com/15953522/48802742-2041cc00-ed36-11e8-822d-82b90213731c.png)
 
 **Share your awesome library with the community**
+
 ![image](https://user-images.githubusercontent.com/15953522/48802284-cf7da380-ed34-11e8-9486-658543cda8b7.png)
 
 
