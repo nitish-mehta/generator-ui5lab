@@ -19,5 +19,5 @@ coverage
 .idea
 #.editorconfig
 
-#additional resources
-bower_components
+test/ui5lab/browser/
+dist/test-resources/ui5lab/browser/
