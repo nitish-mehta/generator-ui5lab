@@ -118,6 +118,18 @@ module.exports = class extends Generator {
       this.destinationPath(`${oProps.srcCodeDir}/themes`),
       oProps
     );
+
+    this.fs.copyTpl(
+      this.templatePath("devresources/package.json"),
+      this.destinationPath(`package.json`),
+      oProps
+    );
+
+    this.fs.copyTpl(
+      this.templatePath("devresources/ui5.yaml"),
+      this.destinationPath(`ui5.yaml`),
+      oProps
+    );
   }
 
   /**
@@ -128,7 +140,8 @@ module.exports = class extends Generator {
     this.fs.copyTpl(
       [
         this.templatePath("devresources/**"),
-        `!${this.templatePath("devresources/Gruntfile.js")}`
+        `!${this.templatePath("devresources/package.json")}`,
+        `!${this.templatePath("devresources/ui5.yaml")}`
       ],
       this.destinationPath(``),
       oProps,

@@ -11,21 +11,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified. Please add some.\" && exit 1",
     "prepare": "node prepare",
-    "start": "ui5 serve -o",
+    "start": "ui5 serve --port 8081 --open test-resources/demo.html",
     "build": "ui5 build"
   },
   "ui5lab": {
-    "namespace": "CHANGE.THIS",
-    "icon": "ChangeThis",
-    "displayName": "ChangeThis"
+    "namespace": "<%= libraryName %>.<%= controlName %>",
+    "icon": "lab",
+    "displayName": "<%= controlName %>"
   },
   "dependencies": {
     "@openui5/sap.f": "^1.60.0",
     "@openui5/sap.m": "^1.60.0",
     "@openui5/sap.ui.core": "^1.60.0",
     "@openui5/sap.ui.layout": "^1.60.0",
-    "@openui5/themelib_sap_belize": "^1.60.0",
-    "parallax-js": "^3.1.0"
+    "@openui5/themelib_sap_belize": "^1.60.0"
   },
   "devDependencies": {
     "ui5lab-browser": "^1.0.0",
