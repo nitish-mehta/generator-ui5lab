@@ -5,7 +5,7 @@
 [![NPM Version](http://img.shields.io/npm/v/generator-ui5lab.svg?style=flat)](https://www.npmjs.org/package/generator-ui5lab)
 
 # Introduction
-Project aims to simplify development of UI5 libraries. This yeoman generator gives you a headstart by setting up your complete development environment (Grunt dev server, Node dependencies, Bower components) and creates a custom library with your provided namespace.
+Project aims to simplify development of UI5 libraries. This yeoman generator gives you a headstart by setting up your complete development environment ([UI5 cli and build tools](https://github.com/SAP/ui5-tooling), Node dependencies, test application) and creates a custom library with your provided namespace.
 
 Feel free to check out similar custom libraries added by openui5 community at www.ui5lab.io
 
